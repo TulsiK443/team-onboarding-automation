@@ -1,59 +1,71 @@
-# Semi-Automated Team Onboarding & Verification Workflow
-
-## Overview
-This repository documents a semi-automated onboarding and verification system designed to streamline the intake of team data and documents for recurring corporate programs. The workflow prioritizes data integrity, predictable inputs, and scalability, while being intentionally designed to be automation-ready.
-
----
+# Team Onboarding & Verification Automation
 
 ## Problem
-Onboarding multiple teams required repeated email follow-ups, inconsistent spreadsheets, and manual folder creation. As scale increased, this led to:
-- Inconsistent data formats and schema changes
-- High manual effort in document handling
-- Verification risks during execution
-- Poor visibility into onboarding status
+During large corporate sports events, onboarding participating teams was highly manual and error-prone.
+Once teams confirmed participation, the operations team had to:
+- Send invitation emails
+- Follow up for HR approvals
+- Collect player ID cards, HR letters, company logos
+- Share and validate Excel sheets with player details
+- Manually create folders per company and sport in Google Drive
+
+This led to delays, missing data, repetitive follow-ups, and high operational overhead.
 
 ---
 
-## Solution
-I redesigned the workflow into a centralized system using structured data intake, standardized templates, and organized storage.
+## Solution Overview
+I designed a **semi-automated, automation-ready onboarding workflow** using Google Forms, standardized templates, and structured file handling.
 
-### Key components:
-- **Single intake form** for all onboarding information
-- **Mandatory file uploads** at submission time
-- **Standardized player data template** with fixed schema
-- **Centralized file collection** with enforced naming conventions
-- **Repeatable folder structure** by event and sport
-
----
-
-## Workflow Walkthrough
-1. Teams submit onboarding details via a Google Form
-2. Required documents are uploaded at submission
-3. Player details are provided using a fixed template
-4. All files automatically land in a central Drive folder
-5. Admin routes files using naming conventions for fast verification
+The goal was to:
+- Reduce back-and-forth communication
+- Enforce data consistency
+- Centralize all verification data
+- Prepare the system for full automation (n8n-ready)
 
 ---
 
-## Automation Logic (n8n-Ready Design)
-The current version is semi-automated and designed for future automation.
+## Workflow
+1. Teams receive a single onboarding link (Google Form)
+2. Team Admin submits:
+   - Team & sport selection
+   - Player details via a standardized Excel template
+   - Player ID cards
+   - HR approval letter
+   - Payment proof
+3. All uploads land in a centralized Google Drive folder
+4. Admin performs quick validation and sorting
+5. Folder structure follows:
 
-Proposed n8n flow:
-- Trigger: New form submission
-- Parse company name and sport
-- Create folder if not exists
-- Route uploaded files automatically
-- Update master onboarding status tracker
-
----
-
-## Impact
-- ~60–70% reduction in manual onboarding effort
-- Elimination of data format inconsistencies
-- Improved readiness and verification accuracy
-- Scalable workflow reusable across programs
+(See workflow diagram in this repo)
 
 ---
 
-## AI Usage
-AI tools were used to structure problem-solving, validate workflow design decisions, and improve clarity of documentation. All workflow design and execution decisions were independently driven.
+## Why This Matters
+- Eliminated multiple email threads per team
+- Reduced onboarding time per team significantly
+- Standardized data for match-day verification
+- Designed with future automation in mind (n8n / Drive API)
+
+---
+
+## Future Scope (Automation-Ready)
+- n8n workflow to:
+- Auto-create folders per submission
+- Validate file naming conventions
+- Flag missing or incorrect documents
+- Send automated confirmation emails
+- Auto-sync player data into a master operations dashboard
+
+---
+
+## Tools Used
+- Google Forms
+- Google Drive
+- Excel (standardized templates)
+- Process design & workflow thinking
+- AI used to structure workflow and identify automation opportunities
+
+---
+
+## Outcome
+This workflow transformed a chaotic, manual process into a scalable and structured onboarding system, reducing errors and improving coordination across multiple teams and stakeholders.
